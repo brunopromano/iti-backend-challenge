@@ -60,7 +60,7 @@ namespace Iti.Challenge.RestApi
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API PainelContabil v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rest API for Iti Backend Challenge");
             });
 
             app.UseHttpsRedirection();
