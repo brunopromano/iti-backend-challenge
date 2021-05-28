@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Iti.Challenge.RestApi.Dependencies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,23 +30,8 @@ namespace Iti.Challenge.RestApi
             services.AddControllers()
                     .AddNewtonsoftJson();
 
-            services.AddSwaggerGenNewtonsoftSupport();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerGeneratorOptions.IgnoreObsoleteActions = true;
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Iti Challenge Rest API",
-                    Description = "Rest API to check if a password is valid for Iti Backend Challenge",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Bruno Romano",
-                        Email = "brunopromano@gmail.com",
-                    }
-                });
-            });
+            services.AddSwaggerGenNewtonsoftSupport()
+                    .AddSwaggerApiDoc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,12 +42,7 @@ namespace Iti.Challenge.RestApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rest API for Iti Backend Challenge");
-            });
+            app.UseSwaggerApiDoc();
 
             app.UseHttpsRedirection();
 
