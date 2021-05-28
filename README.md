@@ -5,17 +5,18 @@
 * [Reste Api Documentation](#Rest-Api-Documentation)
 * [Tests](#Tests)
 
-## Requeriments
+## Requirements
 
+<a href="https://dotnet.microsoft.com/download/dotnet/3.1">.Net Core SDK 3.1.x</a>
 
 ## Usage
 
-In the project root restore all project dependencies:
+First, go to project root and restore all project dependencies:
 ```shell
 $ dotnet restore
 ```
 
-To run the Rest API:
+Then, run the Rest API:
 ```shell
 $ dotnet run --project src/Iti.Challenge.RestApi
 ```
