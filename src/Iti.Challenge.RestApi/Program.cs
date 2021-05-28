@@ -18,8 +18,13 @@ namespace Iti.Challenge.RestApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
+                .ConfigureLogging((hostingContext, logBuilder ) => {
+                    logBuilder.ClearProviders();
+                    logBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                    logBuilder.AddConsole();
+                    logBuilder.AddDebug();
+                })
+                .ConfigureWebHostDefaults(webBuilder => {
                     webBuilder.UseStartup<Startup>();
                 });
     }
