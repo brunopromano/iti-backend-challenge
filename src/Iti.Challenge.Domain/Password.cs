@@ -2,7 +2,8 @@
 
 namespace Iti.Challenge.Domain
 {
-    public class Class1
+    public class Password
     {
+        public string Value { get; }
     }
 }
