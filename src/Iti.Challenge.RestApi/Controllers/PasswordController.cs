@@ -19,17 +19,20 @@ namespace Iti.Challenge.RestApi.Controllers
         /// at least 1 lowercase char and
         /// at least 1 special char
         /// <summary>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Route("check"), HttpPost]
         public async Task<IActionResult> Check([FromBody] Password password)
         {
             try
             {
-                if (password is null)
+                if (password is null || password.Value is null)
                 {
                     return BadRequest(new { response = "Seems like you sent an invalid request body. Please, see the docs :)"});
                 }
-
-                bool response = await ValidatePassword.IsValid(password.ToString());
+                
+                bool response = await ValidatePassword.IsValid(password.Value);
                 
                 return StatusCode(200, new { valid = response });
             }
