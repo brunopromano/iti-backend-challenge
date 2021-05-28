@@ -19,6 +19,7 @@ namespace Iti.Challenge.Tests.Integration
 
             res.EnsureSuccessStatusCode();
             Assert.Equal("application/json; charset=utf-8", res.Content.Headers.ContentType.ToString());
+            DisposeClientAndServer();
         }
 
         [Fact]
@@ -29,6 +30,7 @@ namespace Iti.Challenge.Tests.Integration
             var res = await _client.PostAsync("api/password/check", reqData);
             
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);
+            DisposeClientAndServer();
         }
 
         [Fact]
@@ -39,6 +41,7 @@ namespace Iti.Challenge.Tests.Integration
             var res = await _client.PostAsync("api/password/check", reqData);
 
             Assert.Equal(HttpStatusCode.BadRequest, res.StatusCode);
+            DisposeClientAndServer();
         }
 
         [Fact]
@@ -52,6 +55,7 @@ namespace Iti.Challenge.Tests.Integration
             
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);
             Assert.Equal(true, resJson.Valid);
+            DisposeClientAndServer();
         }
 
         [Fact]
@@ -65,6 +69,7 @@ namespace Iti.Challenge.Tests.Integration
 
             Assert.Equal(HttpStatusCode.OK, res.StatusCode);
             Assert.Equal(false, resJson.Valid);
+            DisposeClientAndServer();
         }
     }
 }
