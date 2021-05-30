@@ -7,7 +7,7 @@ namespace Iti.Challenge.Tests.Integration
     public class SwaggerUserInterfaceTest : ClientAndServerBaseTest
     {
         [Fact]
-        public async Task MustReturnOk()
+        public async Task SwaggerUIMustReturnOk()
         {
             var res = await _client.GetAsync("/swagger/index.html");
 
