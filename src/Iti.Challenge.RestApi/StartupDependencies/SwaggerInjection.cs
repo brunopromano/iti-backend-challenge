@@ -7,7 +7,7 @@ namespace Iti.Challenge.RestApi.Dependencies
 {
     public static class SwaggerInjection
     {
-        public static void AddSwaggerApiDoc(this IServiceCollection services)
+        public static void AddSwaggerDocService(this IServiceCollection services)
         {
             if (services is null) throw new ArgumentNullException(nameof(services));
 
