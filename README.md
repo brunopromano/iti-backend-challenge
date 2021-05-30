@@ -3,6 +3,7 @@
 * [Requirements](#Requirements)
 * [Usage](#Usage)
 * [Rest Api Documentation](#Rest-Api-Documentation)
+* [Api Monitoring](#Api-Monitoring)
 * [Tests](#Tests)
 
 ## Requirements
