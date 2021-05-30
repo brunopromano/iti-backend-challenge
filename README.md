@@ -25,7 +25,7 @@ $ dotnet run --project src/Iti.Challenge.RestApi
 
 The rest API documentation is provided by Swagger. You must start the API (above step) and then go to `http://localhost:5000/swagger`
 
-## Api Health Checks
+## Api Monitoring
 
 To check the application and endpoints status, go to:
 `https://localhost:5001/healthchecks-ui`
